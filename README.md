@@ -1,73 +1,164 @@
-# React + TypeScript + Vite
+# rect-shadcn-kit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Colección de *wrappers* y componentes reutilizables basados en
+**shadcn/ui**, diseñados para agilizar el desarrollo de interfaces en
+proyectos React con TypeScript.
 
-Currently, two official plugins are available:
+Este kit incluye componentes tanto en su versión **base** como en su
+versión integrada con **React Hook Form**, permitiendo una
+implementación rápida, consistente y tipada.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+------------------------------------------------------------------------
 
-## React Compiler
+## 🚀 Características
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+-   🎨 Wrappers basados en **shadcn/ui**
+-   ⚛️ Componentes en **React + TypeScript**
+-   🧩 Versiones **base** y **RHF** para formularios
+-   📦 Actualmente disponible:
+    -   **Input**
+    -   **Select**
+-   🧱 Diseño consistente, validación sencilla y DX mejorada
 
-## Expanding the ESLint configuration
+------------------------------------------------------------------------
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Instalación
+1. Instala tailwind.
+2. Instala shadcn.
+3. Copia y pega el codigo del wrapper.
+4. Instala los componentes de shadcn que necesita el wrapper.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Para utilizar los wrappers de form, debes tener instalado react hook form.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+------------------------------------------------------------------------
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🧩 Componentes disponibles
+
+### ✔️ Input
+
+-   `Input` (base)
+-   `FormInput` (integrado con React Hook Form)
+
+### ✔️ Select
+
+-   `Select` (base)
+-   `FormSelect` (integrado con React Hook Form)
+
+------------------------------------------------------------------------
+
+## 💡 Uso básico
+
+### **Input base**
+
+``` tsx
+import { Input } from "rect-shadcn-kit";
+
+export default function Example() {
+  return <Input label="Nombre" placeholder="Tu nombre" />;
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### **Input con React Hook Form**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+``` tsx
+import { useForm } from "react-hook-form";
+import { FormInput } from "rect-shadcn-kit";
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+export default function FormExample() {
+  const form = useForm();
+
+  return (
+    <form>
+      <FormInput
+        control={form.control}
+        name="email"
+        label="Correo"
+        placeholder="correo@example.com"
+      />
+    </form>
+  );
+}
 ```
+
+### **Select base**
+
+``` tsx
+import { Select } from "rect-shadcn-kit";
+
+export default function Example() {
+  return (
+    <Select
+      label="País"
+      options={[
+        { label: "Colombia", value: "co" },
+        { label: "México", value: "mx" },
+      ]}
+    />
+  );
+}
+```
+
+### **Select con React Hook Form**
+
+``` tsx
+import { useForm } from "react-hook-form";
+import { FormSelect } from "rect-shadcn-kit";
+
+export default function Example() {
+  const form = useForm();
+
+  return (
+    <form>
+      <FormSelect
+        control={form.control}
+        name="country"
+        label="País"
+        options={[
+          { label: "Colombia", value: "co" },
+          { label: "México", value: "mx" },
+        ]}
+      />
+    </form>
+  );
+}
+```
+
+------------------------------------------------------------------------
+
+## 🛠️ Motivación
+
+Este repositorio nace para evitar repetir la misma configuración cada
+vez que se inicia un proyecto con shadcn/ui.
+
+Con este kit puedes:
+
+-   Mantener un diseño consistente entre proyectos.
+-   Reducir código repetido en formularios.
+-   Aumentar la productividad en etapas iniciales.
+-   Enfocarte en la lógica en lugar de la UI.
+
+------------------------------------------------------------------------
+
+## 🗺️ Roadmap
+
+-   ✔️ Input\
+-   ✔️ Select\
+-   ⬜ Textarea\
+-   ⬜ Button wrapper\
+-   ⬜ Datepicker wrapper\
+-   ⬜ Documentación completa\
+-   ⬜ Demo en Storybook\
+-   ⬜ Publicación en npm
+
+------------------------------------------------------------------------
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas!\
+Abre un issue o un pull request con ideas, mejoras o nuevos wrappers.
+
+------------------------------------------------------------------------
+
+## 📄 Licencia
+
+MIT License © Farid Moreno
