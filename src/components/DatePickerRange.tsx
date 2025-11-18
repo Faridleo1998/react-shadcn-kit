@@ -197,7 +197,7 @@ const DatePickerRangeComponent = forwardRef<
                 type="button"
                 variant="link"
                 size="icon"
-                className="absolute top-2 right-0 cursor-pointer"
+                className="absolute top-0 right-0 cursor-pointer"
                 onClick={(e) => handleClear(e)}
                 aria-label="Clear selection"
               >
