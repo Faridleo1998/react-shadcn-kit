@@ -2,16 +2,18 @@ import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Form } from "./components/ui/form";
+import { SendIcon, TrashIcon } from "lucide-react";
 import FormInput from "./components/form/FormInput";
 import Button from "./components/Button";
-import { SendIcon, TrashIcon } from "lucide-react";
 import FormSelect from "./components/form/FormSelect";
+import FormCombobox from "./components/form/FormCombobox";
 
 function App() {
   const schema = z.object({
     firstName: z.string().min(1, "First name is required"),
     email: z.email("Invalid email"),
     country: z.string().min(1, "Country is required"),
+    framework: z.string().min(1, "Framework is required"),
   });
 
   type FormData = z.infer<typeof schema>;
@@ -22,6 +24,7 @@ function App() {
       firstName: "",
       email: "",
       country: "",
+      framework: "",
     },
   });
 
@@ -61,6 +64,20 @@ function App() {
                 { label: "Canada", value: "CA" },
               ]}
               control={form.control}
+              allowClear
+              required
+            />
+
+            <FormCombobox
+              label="Framework"
+              name="framework"
+              options={[
+                { label: "React", value: "react" },
+                { label: "Vue", value: "vue" },
+                { label: "Svelte", value: "svelte", disabled: true },
+              ]}
+              control={form.control}
+              allowClear
               required
             />
 
