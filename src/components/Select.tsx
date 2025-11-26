@@ -2,7 +2,7 @@ import { forwardRef, memo } from "react";
 import Label from "./form/Label";
 
 import {
-  Select,
+  Select as SelectShadcn,
   SelectTrigger,
   SelectValue,
   SelectContent,
@@ -12,7 +12,7 @@ import { Button } from "./ui/button";
 
 import { XIcon } from "lucide-react";
 
-interface Option {
+export interface Option {
   value: string | number;
   label: string;
 }
@@ -32,6 +32,7 @@ interface BaseSelectProps {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   disabled?: boolean;
+  allowClear?: boolean;
 }
 
 const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
@@ -51,6 +52,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
       prefix,
       suffix,
       disabled,
+      allowClear = false,
       ...props
     },
     ref
@@ -83,7 +85,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
         <div className={`flex items-center gap-2 ${label ? "mt-2" : ""}`}>
           {prefix && <div className="text-muted-foreground">{prefix}</div>}
 
-          <Select
+          <SelectShadcn
             value={value?.toString()}
             onValueChange={(val) => onValueChange?.(val)}
           >
@@ -101,7 +103,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
               >
                 <SelectValue placeholder={placeholder} />
               </SelectTrigger>
-              {value && !disabled && (
+              {value && !disabled && allowClear && (
                 <Button
                   type="button"
                   variant="link"
@@ -126,7 +128,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
                 </SelectItem>
               ))}
             </SelectContent>
-          </Select>
+          </SelectShadcn>
 
           {suffix && <div className="text-muted-foreground">{suffix}</div>}
         </div>
@@ -153,8 +155,8 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
   }
 );
 
-BaseSelectComponent.displayName = "BaseSelect";
+BaseSelectComponent.displayName = "Select";
 
-const BaseSelect = memo(BaseSelectComponent);
+const Select = memo(BaseSelectComponent);
 
-export default BaseSelect;
+export default Select;

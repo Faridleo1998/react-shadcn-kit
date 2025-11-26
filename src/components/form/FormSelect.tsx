@@ -1,19 +1,20 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
-import BaseSelect from "../Select";
+import Select, { type Option } from "../Select";
 
 interface SelectProps<T extends FieldValues> {
   control: Control<T>;
   name: Path<T>;
   label?: string;
   placeholder?: string;
-  options: Array<{ value: string | number; label: string }>;
+  options: Option[];
   description?: string;
   className?: string;
   required?: boolean;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   disabled?: boolean;
+  allowClear?: boolean;
 }
 
 const FormSelect = <T extends FieldValues>({
@@ -28,6 +29,7 @@ const FormSelect = <T extends FieldValues>({
   prefix,
   suffix,
   disabled = false,
+  allowClear = false,
 }: SelectProps<T>) => {
   return (
     <FormField
@@ -35,7 +37,7 @@ const FormSelect = <T extends FieldValues>({
       name={name}
       render={({ field, fieldState }) => (
         <FormItem className={className}>
-          <BaseSelect
+          <Select
             id={name}
             name={name}
             label={label}
@@ -49,6 +51,7 @@ const FormSelect = <T extends FieldValues>({
             prefix={prefix}
             suffix={suffix}
             disabled={disabled}
+            allowClear={allowClear}
           />
           <FormMessage className="sr-only" />
         </FormItem>
