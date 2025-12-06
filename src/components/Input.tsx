@@ -128,8 +128,8 @@ const BaseInputComponent = forwardRef<HTMLInputElement, BaseInputProps>(
   }
 );
 
-BaseInputComponent.displayName = "BaseInput";
+BaseInputComponent.displayName = "Input";
 
-const BaseInput = memo(BaseInputComponent);
+const Input = memo(BaseInputComponent);
 
-export default BaseInput;
+export default Input;

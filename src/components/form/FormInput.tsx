@@ -1,6 +1,6 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
-import BaseInput from "../Input";
+import Input from "../Input";
 
 interface InputProps<T extends FieldValues> {
   control: Control<T>;
@@ -38,7 +38,7 @@ const FormInput = <T extends FieldValues>({
       render={({ field, fieldState }) => {
         return (
           <FormItem className={className}>
-            <BaseInput
+            <Input
               {...field}
               ref={field.ref}
               id={name}
