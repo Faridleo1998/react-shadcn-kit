@@ -24,7 +24,7 @@ interface BaseSelectProps {
   placeholder?: string;
   options: Option[];
   value?: string | number;
-  onValueChange?: (value: string | number) => void;
+  onChange?: (value: string | number) => void;
   description?: string;
   error?: string;
   required?: boolean;
@@ -44,7 +44,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
       placeholder = "Select an option",
       options,
       value,
-      onValueChange,
+      onChange,
       description,
       error,
       required = false,
@@ -68,7 +68,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
 
     const handleClear = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
-      onValueChange?.("");
+      onChange?.("");
     };
 
     return (
@@ -87,7 +87,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
 
           <SelectShadcn
             value={value?.toString()}
-            onValueChange={(val) => onValueChange?.(val)}
+            onValueChange={(val) => onChange?.(val)}
           >
             <div className="relative w-full">
               <SelectTrigger
