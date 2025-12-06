@@ -15,6 +15,7 @@ interface SelectProps<T extends FieldValues> {
   suffix?: React.ReactNode;
   disabled?: boolean;
   allowClear?: boolean;
+  heigth?: string;
 }
 
 const FormSelect = <T extends FieldValues>({
@@ -30,6 +31,7 @@ const FormSelect = <T extends FieldValues>({
   suffix,
   disabled = false,
   allowClear = false,
+  heigth,
 }: SelectProps<T>) => {
   return (
     <FormField
@@ -52,6 +54,7 @@ const FormSelect = <T extends FieldValues>({
             suffix={suffix}
             disabled={disabled}
             allowClear={allowClear}
+            height={heigth}
           />
           <FormMessage className="sr-only" />
         </FormItem>

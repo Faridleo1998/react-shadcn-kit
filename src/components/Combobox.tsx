@@ -25,58 +25,61 @@ import Button from "./Button";
 import Label from "./form/Label";
 
 export interface ComboboxOption {
-  value: string;
-  label: string;
   disabled?: boolean;
+  label: string;
+  value: string;
 }
 
 interface ComboboxProps {
-  options: ComboboxOption[];
-  value?: string;
-  onChange?: (value: string) => void;
-  label?: string;
-  description?: string;
-  error?: string;
-  placeholder?: string;
-  searchPlaceholder?: string;
-  emptyMessage?: string;
-  disabled?: boolean;
-  className?: string;
-  buttonClassName?: string;
-  popoverClassName?: string;
   allowClear?: boolean;
-  required?: boolean;
+  buttonClassName?: string;
+  className?: string;
+  description?: string;
+  disabled?: boolean;
+  emptyMessage?: string;
+  error?: string;
+  height?: string;
   id?: string;
+  label?: string;
   name?: string;
+  onChange?: (value: string) => void;
+  options: ComboboxOption[];
+  placeholder?: string;
+  popoverClassName?: string;
+  required?: boolean;
+  searchPlaceholder?: string;
+  value?: string;
 }
 
 const ComboboxComponent = forwardRef<HTMLButtonElement, ComboboxProps>(
   (
     {
-      options,
-      value: controlledValue,
-      onChange,
-      label,
-      description,
-      error,
-      placeholder = "Select an option",
-      searchPlaceholder = "Search...",
-      emptyMessage = "No results found.",
-      disabled = false,
-      className,
-      buttonClassName,
-      popoverClassName,
       allowClear = false,
-      required = false,
+      buttonClassName,
+      className,
+      description,
+      disabled = false,
+      emptyMessage = "No results found.",
+      error,
+      height = "h-48",
       id,
+      label,
       name,
+      onChange,
+      options,
+      placeholder = "Select an option",
+      popoverClassName,
+      required = false,
+      searchPlaceholder = "Search...",
+      value: controlledValue,
     },
     ref
   ) => {
     const [open, setOpen] = useState(false);
     const [internalValue, setInternalValue] = useState("");
-    const triggerRef = useRef<HTMLButtonElement>(null);
     const [triggerWidth, setTriggerWidth] = useState(0);
+
+    const triggerRef = useRef<HTMLButtonElement>(null);
 
     const value =
       controlledValue !== undefined ? controlledValue : internalValue;
@@ -168,7 +171,7 @@ const ComboboxComponent = forwardRef<HTMLButtonElement, ComboboxProps>(
             )}
           </div>
           <PopoverContent
-            className={cn("p-0", popoverClassName)}
+            className={cn("p-0", popoverClassName, height)}
             style={{ width: triggerWidth }}
           >
             <Command>

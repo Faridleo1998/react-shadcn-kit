@@ -33,6 +33,7 @@ interface BaseSelectProps {
   suffix?: React.ReactNode;
   disabled?: boolean;
   allowClear?: boolean;
+  height?: string;
 }
 
 const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
@@ -53,6 +54,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
       suffix,
       disabled,
       allowClear = false,
+      height = "h-48",
       ...props
     },
     ref
@@ -117,7 +119,11 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
               )}
             </div>
 
-            <SelectContent>
+            <SelectContent
+              className={height}
+              position="popper"
+              style={{ width: "var(--radix-select-trigger-width)" }}
+            >
               {options.map((option) => (
                 <SelectItem
                   key={option.value}

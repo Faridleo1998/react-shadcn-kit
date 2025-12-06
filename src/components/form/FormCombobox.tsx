@@ -3,32 +3,34 @@ import { FormField, FormItem, FormMessage } from "@/components/ui/form";
 import Combobox, { type ComboboxOption } from "../Combobox";
 
 interface FormComboboxProps<T extends FieldValues> {
+  allowClear?: boolean;
+  className?: string;
   control: Control<T>;
+  description?: string;
+  disabled?: boolean;
+  emptyMessage?: string;
+  height?: string;
+  label?: string;
   name: Path<T>;
   options: ComboboxOption[];
-  label?: string;
   placeholder?: string;
-  description?: string;
-  className?: string;
-  disabled?: boolean;
   required?: boolean;
-  allowClear?: boolean;
-  emptyMessage?: string;
   searchPlaceholder?: string;
 }
 
 const FormCombobox = <T extends FieldValues>({
+  allowClear = false,
+  className,
   control,
+  description,
+  disabled = false,
+  emptyMessage,
+  height,
+  label,
   name,
   options,
-  label,
   placeholder,
-  description,
-  className,
-  disabled = false,
   required = false,
-  allowClear = false,
-  emptyMessage,
   searchPlaceholder,
 }: FormComboboxProps<T>) => {
   return (
@@ -38,20 +40,21 @@ const FormCombobox = <T extends FieldValues>({
       render={({ field, fieldState }) => (
         <FormItem className={className}>
           <Combobox
-            options={options}
-            value={field.value ?? ""}
-            onChange={field.onChange}
-            label={label}
-            description={description}
-            placeholder={placeholder}
-            error={fieldState.error?.message}
-            disabled={disabled}
-            required={required}
             allowClear={allowClear}
+            description={description}
+            disabled={disabled}
             emptyMessage={emptyMessage}
-            searchPlaceholder={searchPlaceholder}
+            error={fieldState.error?.message}
+            height={height}
             id={name}
+            label={label}
             name={name}
+            onChange={field.onChange}
+            options={options}
+            placeholder={placeholder}
+            required={required}
+            searchPlaceholder={searchPlaceholder}
+            value={field.value ?? ""}
           />
           <FormMessage className="sr-only" />
         </FormItem>
