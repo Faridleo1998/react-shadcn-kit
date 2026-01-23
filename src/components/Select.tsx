@@ -122,7 +122,7 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
             <SelectContent
               className={height}
               position="popper"
-              style={{ width: "var(--radix-select-trigger-width)" }}
+              style={{ width: "var(--radix-select-trigger-width)", height: "auto" }}
             >
               {options.map((option) => (
                 <SelectItem

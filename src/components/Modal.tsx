@@ -99,7 +99,7 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
           ref={ref}
           className={`${sizeClasses[size]} ${
             className || ""
-          } overflow-hidden grid grid-rows-[auto_1fr_auto]`}
+          } overflow-hidden grid grid-rows-[auto_1fr_auto] min-h-0`}
           style={{ maxHeight: finalMaxHeight }}
           {...dialogContentProps}
         >
@@ -109,9 +109,11 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
               {description || title}
             </DialogDescription>
           </DialogHeader>
-          <ScrollArea className="overflow-y-auto -mr-4">
+
+          <ScrollArea className="overflow-y-auto -mr-4 min-h-0">
             <div className="pr-4">{children}</div>
           </ScrollArea>
+
           {shouldShowFooter && (
             <DialogFooter>
               {closeButtonPosition === "left" && closeButton}

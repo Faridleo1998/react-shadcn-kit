@@ -172,7 +172,7 @@ const ComboboxComponent = forwardRef<HTMLButtonElement, ComboboxProps>(
           </div>
           <PopoverContent
             className={cn("p-0", popoverClassName, height)}
-            style={{ width: triggerWidth }}
+            style={{ width: triggerWidth, height: "auto" }}
           >
             <Command>
               <CommandInput placeholder={searchPlaceholder} className="h-9" />
