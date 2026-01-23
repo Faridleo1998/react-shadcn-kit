@@ -1,6 +1,6 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
-import Textarea from "../Textarea";
+import Textarea from "../textarea";
 
 interface TextareaProps<T extends FieldValues> {
   control: Control<T>;

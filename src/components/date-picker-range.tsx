@@ -13,9 +13,9 @@ import { CalendarIcon, CheckIcon, XIcon } from "lucide-react";
 
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
-import Label from "./form/Label";
-import Button from "./Button";
-import Select from "./Select";
+import Label from "./form/label";
+import Button from "./button";
+import Select from "./select";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 export interface Preset {

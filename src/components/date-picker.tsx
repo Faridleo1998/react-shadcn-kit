@@ -11,8 +11,8 @@ import { CalendarIcon, XIcon } from "lucide-react";
 
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
-import Label from "./form/Label";
-import Button from "./Button";
+import Label from "./form/label";
+import Button from "./button";
 
 interface DatePickerProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {

@@ -1,36 +1,36 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
-import Input from "../Input";
 
-interface InputProps<T extends FieldValues> {
+import DatePickerRange, { type Preset } from "../date-picker-range";
+import type { DateRange } from "react-day-picker";
+
+interface FormDatePickerRangeProps<T extends FieldValues> {
   control: Control<T>;
   name: Path<T>;
   label?: string;
-  placeholder?: string;
-  type?: string;
   description?: string;
   className?: string;
   required?: boolean;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
-  autoFocus?: boolean;
   disabled?: boolean;
+  format?: string;
+  presets?: Preset[];
+  disabledBefore?: Date;
+  disabledAfter?: Date;
 }
 
-const FormInput = <T extends FieldValues>({
+const FormDatePickerRange = <T extends FieldValues>({
   control,
   name,
   label,
-  placeholder,
-  type = "text",
   description,
   className,
   required = false,
-  prefix,
-  suffix,
-  autoFocus = false,
   disabled = false,
-}: InputProps<T>) => {
+  format,
+  presets,
+  disabledBefore,
+  disabledAfter,
+}: FormDatePickerRangeProps<T>) => {
   return (
     <FormField
       control={control}
@@ -38,21 +38,21 @@ const FormInput = <T extends FieldValues>({
       render={({ field, fieldState }) => {
         return (
           <FormItem className={className}>
-            <Input
-              {...field}
-              ref={field.ref}
+            <DatePickerRange
               id={name}
-              type={type}
               label={label}
-              placeholder={placeholder}
               description={description}
-              error={fieldState.error?.message}
               required={required}
-              prefix={prefix}
-              suffix={suffix}
-              autoFocus={autoFocus}
+              error={fieldState.error?.message}
+              value={field.value as DateRange | undefined}
+              onChange={field.onChange}
+              format={format}
               disabled={disabled}
+              presets={presets}
+              disabledBefore={disabledBefore}
+              disabledAfter={disabledAfter}
             />
+
             <FormMessage className="sr-only" />
           </FormItem>
         );
@@ -61,4 +61,4 @@ const FormInput = <T extends FieldValues>({
   );
 };
 
-export default FormInput;
+export default FormDatePickerRange;

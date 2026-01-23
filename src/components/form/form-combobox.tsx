@@ -1,6 +1,6 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
-import Combobox, { type ComboboxOption } from "../Combobox";
+import Combobox, { type ComboboxOption } from "../combobox";
 
 interface FormComboboxProps<T extends FieldValues> {
   allowClear?: boolean;

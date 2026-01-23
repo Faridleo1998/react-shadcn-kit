@@ -21,8 +21,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import Button from "./Button";
-import Label from "./form/Label";
+import Button from "./button";
+import Label from "./form/label";
 
 export interface ComboboxOption {
   disabled?: boolean;

@@ -1,7 +1,7 @@
 import { forwardRef, memo, type InputHTMLAttributes } from "react";
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
-import Label from "./form/Label";
+import Label from "./form/label";
 
 interface BaseInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "prefix"> {

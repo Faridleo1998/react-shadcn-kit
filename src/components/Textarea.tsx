@@ -1,7 +1,7 @@
 import { forwardRef, memo, type TextareaHTMLAttributes } from "react";
 
 import { InputGroup } from "./ui/input-group";
-import Label from "./form/Label";
+import Label from "./form/label";
 import { Textarea as TextareaShadcn } from "@/components/ui/textarea";
 
 interface BaseTextareaProps

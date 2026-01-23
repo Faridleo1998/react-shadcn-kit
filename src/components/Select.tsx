@@ -1,5 +1,5 @@
 import { forwardRef, memo } from "react";
-import Label from "./form/Label";
+import Label from "./form/label";
 
 import {
   Select as SelectShadcn,

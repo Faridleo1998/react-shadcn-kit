@@ -13,7 +13,7 @@ import {
   type ReactNode,
   type ComponentPropsWithoutRef,
 } from "react";
-import Button from "./Button";
+import Button from "./button";
 import { ScrollArea } from "./ui/scroll-area";
 
 type DialogContentProps = ComponentPropsWithoutRef<typeof DialogContent>;

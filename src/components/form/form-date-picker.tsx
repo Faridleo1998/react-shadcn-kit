@@ -1,7 +1,7 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
 
-import DatePicker from "../DatePicker";
+import DatePicker from "../date-picker";
 
 interface FormDatePickerProps<T extends FieldValues> {
   control: Control<T>;

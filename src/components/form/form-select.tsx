@@ -1,6 +1,6 @@
 import type { Control, FieldValues, Path } from "react-hook-form";
 import { FormField, FormItem, FormMessage } from "@/components/ui/form";
-import Select, { type Option } from "../Select";
+import Select, { type Option } from "../select";
 
 interface SelectProps<T extends FieldValues> {
   control: Control<T>;

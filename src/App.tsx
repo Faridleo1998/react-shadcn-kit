@@ -3,10 +3,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Form } from "./components/ui/form";
 import { SendIcon, TrashIcon } from "lucide-react";
-import FormInput from "./components/form/FormInput";
-import Button from "./components/Button";
-import FormSelect from "./components/form/FormSelect";
-import FormCombobox from "./components/form/FormCombobox";
+import FormInput from "./components/form/form-input";
+import Button from "./components/button";
+import FormSelect from "./components/form/form-select";
+import FormCombobox from "./components/form/form-combobox";
 
 function App() {
   const schema = z.object({
