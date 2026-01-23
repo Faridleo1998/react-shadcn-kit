@@ -213,7 +213,7 @@ const DatePickerRangeComponent = forwardRef<
                   options={presets.map((preset) => {
                     return { label: preset.label, value: preset.name };
                   })}
-                  onValueChange={(value) => {
+                  onChange={(value: string | number) => {
                     setPreset(String(value));
                   }}
                 />
