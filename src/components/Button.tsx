@@ -1,4 +1,4 @@
-import { forwardRef, memo, type ComponentProps } from "react";
+import { forwardRef, type ComponentProps } from "react";
 import { Button as ButtonShadcn, buttonVariants } from "@/components/ui/button";
 import { type VariantProps } from "class-variance-authority";
 import { Spinner } from "./ui/spinner";
@@ -13,7 +13,7 @@ interface ButtonWrapperProps
   type?: "button" | "submit" | "reset";
 }
 
-const ButtonComponent = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   (
     {
       loading = false,
@@ -52,8 +52,6 @@ const ButtonComponent = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   }
 );
 
-ButtonComponent.displayName = "Button";
-
-const Button = memo(ButtonComponent);
+Button.displayName = "Button";
 
 export default Button;

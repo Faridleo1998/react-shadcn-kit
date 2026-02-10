@@ -1,10 +1,10 @@
-import { forwardRef, memo, type TextareaHTMLAttributes } from "react";
+import { forwardRef, type TextareaHTMLAttributes } from "react";
 
 import { InputGroup } from "./ui/input-group";
 import Label from "./form/label";
 import { Textarea as TextareaShadcn } from "@/components/ui/textarea";
 
-interface BaseTextareaProps
+interface TextareaProps
   extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "prefix"> {
   label?: string;
   description?: string;
@@ -13,9 +13,9 @@ interface BaseTextareaProps
   required?: boolean;
 }
 
-const BaseTextareaComponent = forwardRef<
+const Textarea = forwardRef<
   HTMLTextAreaElement,
-  BaseTextareaProps
+  TextareaProps
 >(
   (
     {
@@ -87,8 +87,6 @@ const BaseTextareaComponent = forwardRef<
   }
 );
 
-BaseTextareaComponent.displayName = "Textarea";
-
-const Textarea = memo(BaseTextareaComponent);
+Textarea.displayName = "Textarea";
 
 export default Textarea;

@@ -1,4 +1,4 @@
-import { forwardRef, memo } from "react";
+import { forwardRef } from "react";
 import Label from "./form/label";
 
 import {
@@ -17,7 +17,7 @@ export interface Option {
   label: string;
 }
 
-interface BaseSelectProps {
+interface SelectProps {
   id?: string;
   name?: string;
   label?: string;
@@ -36,7 +36,7 @@ interface BaseSelectProps {
   height?: string;
 }
 
-const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
+const Select = forwardRef<HTMLButtonElement, SelectProps>(
   (
     {
       id,
@@ -161,8 +161,6 @@ const BaseSelectComponent = forwardRef<HTMLButtonElement, BaseSelectProps>(
   }
 );
 
-BaseSelectComponent.displayName = "Select";
-
-const Select = memo(BaseSelectComponent);
+Select.displayName = "Select";
 
 export default Select;

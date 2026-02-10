@@ -1,9 +1,9 @@
-import { forwardRef, memo, type InputHTMLAttributes } from "react";
+import { forwardRef, type InputHTMLAttributes } from "react";
 
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
 import Label from "./form/label";
 
-interface BaseInputProps
+interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "prefix"> {
   label?: string;
   description?: string;
@@ -32,7 +32,7 @@ const getInputMode = (
   return inputModeMap[type];
 };
 
-const BaseInputComponent = forwardRef<HTMLInputElement, BaseInputProps>(
+const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       label,
@@ -128,8 +128,6 @@ const BaseInputComponent = forwardRef<HTMLInputElement, BaseInputProps>(
   }
 );
 
-BaseInputComponent.displayName = "Input";
-
-const Input = memo(BaseInputComponent);
+Input.displayName = "Input";
 
 export default Input;

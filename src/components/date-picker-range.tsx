@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  memo,
   useEffect,
   useState,
   type HTMLAttributes,
@@ -44,7 +43,7 @@ interface DatePickerRangeProps
   disabledAfter?: Date;
 }
 
-const DatePickerRangeComponent = forwardRef<
+const DatePickerRange = forwardRef<
   HTMLButtonElement,
   DatePickerRangeProps
 >(
@@ -294,8 +293,6 @@ const DatePickerRangeComponent = forwardRef<
   }
 );
 
-DatePickerRangeComponent.displayName = "DatePickerRangeComponent";
-
-const DatePickerRange = memo(DatePickerRangeComponent);
+DatePickerRange.displayName = "DatePickerRange";
 
 export default DatePickerRange;

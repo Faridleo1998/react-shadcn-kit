@@ -1,7 +1,6 @@
 import { Check, ChevronsUpDown, XIcon } from "lucide-react";
 import {
   forwardRef,
-  memo,
   useCallback,
   useEffect,
   useRef,
@@ -51,7 +50,7 @@ interface ComboboxProps {
   value?: string;
 }
 
-const ComboboxComponent = forwardRef<HTMLButtonElement, ComboboxProps>(
+const Combobox = forwardRef<HTMLButtonElement, ComboboxProps>(
   (
     {
       allowClear = false,
@@ -228,8 +227,6 @@ const ComboboxComponent = forwardRef<HTMLButtonElement, ComboboxProps>(
   }
 );
 
-ComboboxComponent.displayName = "Combobox";
-
-const Combobox = memo(ComboboxComponent);
+Combobox.displayName = "Combobox";
 
 export default Combobox;
