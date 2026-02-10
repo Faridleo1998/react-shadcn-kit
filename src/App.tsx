@@ -7,6 +7,7 @@ import FormInput from "./components/form/form-input";
 import Button from "./components/button";
 import FormSelect from "./components/form/form-select";
 import FormCombobox from "./components/form/form-combobox";
+import FormCheckbox from "./components/form/form-checkbox";
 
 function App() {
   const schema = z.object({
@@ -14,6 +15,7 @@ function App() {
     email: z.email("Invalid email"),
     country: z.string().min(1, "Country is required"),
     framework: z.string().min(1, "Framework is required"),
+    isActive: z.boolean(),
   });
 
   type FormData = z.infer<typeof schema>;
@@ -25,6 +27,7 @@ function App() {
       email: "",
       country: "",
       framework: "",
+      isActive: false,
     },
   });
 
@@ -79,6 +82,12 @@ function App() {
               control={form.control}
               allowClear
               required
+            />
+
+            <FormCheckbox
+              label="is active"
+              name="isActive"
+              control={form.control}
             />
 
             <div className="flex items-center flex-wrap justify-between mt-6">
