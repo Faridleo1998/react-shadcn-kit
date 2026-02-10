@@ -143,9 +143,9 @@ Con este kit puedes:
 
 -   ✔️ Input\
 -   ✔️ Select\
--   ⬜ Textarea\
--   ⬜ Button wrapper\
--   ⬜ Datepicker wrapper\
+-   ✔️ Textarea\
+-   ✔️ Button\
+-   ✔️ Date picker\
 -   ⬜ Documentación completa\
 -   ⬜ Demo en Storybook\
 -   ⬜ Publicación en npm
